@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interfaces/country';
 
@@ -7,32 +7,27 @@ import { Country } from '../../interfaces/country';
   templateUrl: './by-country.component.html',
   styleUrls: ['./by-country.component.scss']
 })
-export class ByCountryComponent implements OnInit {
+export class ByCountryComponent {
 
   public countries: Country[] = null;
-  public hayError = false;
   public errorMessage: string = null;
+  public placeholder = "Search Country";
 
   constructor(
     private countryService: CountryService
   ) { }
 
-  ngOnInit(): void {
-  }
-
   public search(query: string) {
-    this.countryService.search(query)
+    this.countryService.searchByCountry(query)
     .subscribe(x => {
       this.countries = x;
 
       if (this.countries.length === 0) {
-        this.hayError = true;
         this.errorMessage = "Nothing found for " + query;
       } else {
-        this.hayError = false;
+        this.errorMessage = null;
       }
     }, (error) => {
-      this.hayError = true;
       this.errorMessage = "Nothing found for " + query;
       this.countries = null;
     });

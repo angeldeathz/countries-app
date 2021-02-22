@@ -4,15 +4,8 @@
 
 <div class="row">
   <div class="col">
-
-    <app-country-search (onSearch)="search($event)"></app-country-search>
-
-    <br />
-
-    <div class="alert alert-danger" role="alert" *ngIf="hayError">
-      {{ errorMessage }}
-    </div>
-
+    <app-country-search (onSearch)="search($event)" [placeholder]="placeholder"></app-country-search>
+    <app-error [errorMessage]="errorMessage"></app-error>
   </div>
 </div>
 

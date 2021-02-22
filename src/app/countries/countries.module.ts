@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { CountrySearchComponent } from './components/country-search/country-search.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CountrySearchComponent } from './components/country-search/country-sear
     ViewCountryComponent,
     HomeComponent,
     CountryTableComponent,
-    CountrySearchComponent
+    CountrySearchComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,

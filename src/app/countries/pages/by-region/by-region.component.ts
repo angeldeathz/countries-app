@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Country } from '../../interfaces/country';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-by-region',
   templateUrl: './by-region.component.html',
   styleUrls: ['./by-region.component.scss']
 })
-export class ByRegionComponent implements OnInit {
+export class ByRegionComponent {
 
-  constructor() { }
+  public countries: Country[] = null;
+  public errorMessage: string = null;
+  public placeholder = "Search Region";
 
-  ngOnInit(): void {
+  constructor(
+    private countryService: CountryService
+  ) { }
+
+  public search(query: string) {
+    this.countryService.searchByRegion(query)
+    .subscribe(x => {
+      this.countries = x;
+
+      if (this.countries.length === 0) {
+        this.errorMessage = "Nothing found for " + query;
+      } else {
+        this.errorMessage = null;
+      }
+    }, (error) => {
+      this.errorMessage = "Nothing found for " + query;
+      this.countries = null;
+    });
   }
 
 }
