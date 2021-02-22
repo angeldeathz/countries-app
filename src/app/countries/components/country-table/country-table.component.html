@@ -1,0 +1,28 @@
+<table class="table" *ngIf="countries">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Flag</th>
+      <th scope="col">Name</th>
+      <th scope="col">Capital</th>
+      <th scope="col">Region</th>
+      <th scope="col">Population</th>
+      <th scope="col">See more</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let country of countries">
+      <th scope="row">1</th>
+      <td>
+        <img src="{{country.flag}}" alt="Flag" class="flag">
+      </td>
+      <td>{{country.name}}</td>
+      <td>{{country.capital}}</td>
+      <td>{{country.region}}</td>
+      <td>{{country.population | number}}</td>
+      <td>
+        <a routerLink="../country">View</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
