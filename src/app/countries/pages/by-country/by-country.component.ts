@@ -18,6 +18,12 @@ export class ByCountryComponent {
   ) { }
 
   public search(query: string) {
+
+    if (!query) {
+      this.errorMessage = "You can't enter an empty search";
+      return;
+    }
+    
     this.countryService.searchByCountry(query)
     .subscribe(x => {
       this.countries = x;

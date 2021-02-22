@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CountryService } from '../../services/country.service';
+import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-view-country',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewCountryComponent implements OnInit {
 
-  constructor() { }
+  public country: Country = null;
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+    private countryService: CountryService
+    ) { }
+
+  ngOnInit() {
+    this.route.params.subscribe(({id}) => {
+      this.countryService.searchByCode(id).subscribe(country => {
+        this.country = country;
+        console.log(country);
+      });
+    });
   }
 
 }

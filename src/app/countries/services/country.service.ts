@@ -14,17 +14,22 @@ export class CountryService {
   constructor(private httpClient: HttpClient) { }
 
   public searchByCountry(query: string): Observable<Country[]> {
-    const urlBase = environment.urlRestCountries;
-    return this.httpClient.get<Country[]>(urlBase + "name/" + query);
+    const url = environment.urlRestCountries + "name/" + query
+    return this.httpClient.get<Country[]>(url);
   }
 
   public searchByCapital(query: string): Observable<Country[]> {
-    const urlBase = environment.urlRestCountries;
-    return this.httpClient.get<Country[]>(urlBase + "capital/" + query);
+    const url = environment.urlRestCountries + "capital/" + query;
+    return this.httpClient.get<Country[]>(url);
   }
   
   public searchByRegion(query: string): Observable<Country[]> {
-    const urlBase = environment.urlRestCountries;
-    return this.httpClient.get<Country[]>(urlBase + "region/" + query);
+    const url = environment.urlRestCountries + "region/" + query;
+    return this.httpClient.get<Country[]>(url);
+  }
+
+  public searchByCode(query: string): Observable<Country> {
+    const url = environment.urlRestCountries + "alpha/" + query;
+    return this.httpClient.get<Country>(url);
   }
 }

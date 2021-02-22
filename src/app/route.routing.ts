@@ -28,7 +28,7 @@ const routes: Routes = [
     component: ByCountryComponent,
   },
   {
-    path: "country",
+    path: "country/:id",
     component: ViewCountryComponent,
   },
   {

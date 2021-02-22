@@ -18,6 +18,12 @@ export class ByCapitalComponent {
   ) { }
   
   public search(query: string) {
+
+    if (!query) {
+      this.errorMessage = "You can't enter an empty search";
+      return;
+    }
+
     this.countryService.searchByCapital(query)
     .subscribe(x => {
       this.countries = x;
