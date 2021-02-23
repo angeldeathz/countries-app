@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interfaces/country';
+import { filter, map } from 'rxjs/operators';
+import { pipe } from 'rxjs';
 
 @Component({
   selector: 'app-by-country',
@@ -12,6 +14,7 @@ export class ByCountryComponent {
   public countries: Country[] = null;
   public errorMessage: string = null;
   public placeholder = "Search Country";
+  public suggestCountries: Country[] = [];
 
   constructor(
     private countryService: CountryService
@@ -24,6 +27,8 @@ export class ByCountryComponent {
       return;
     }
     
+    this.suggestCountries = [];
+
     this.countryService.searchByCountry(query)
     .subscribe(x => {
       this.countries = x;
@@ -36,6 +41,17 @@ export class ByCountryComponent {
     }, (error) => {
       this.errorMessage = "Nothing found for " + query;
       this.countries = null;
+    });
+  }
+
+  public suggests(query: string){
+
+    this.countryService.searchByCountry(query)
+    .subscribe(countries => {
+      console.log(countries);
+      this.suggestCountries = countries.splice(0, 4);
+    }, () => {
+      this.suggestCountries = [];
     });
   }
 }

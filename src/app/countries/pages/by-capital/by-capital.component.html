@@ -1,18 +1,21 @@
-<br />
-<h2>Search a Capital</h2>
-<hr />
-
-<div class="row">
-  <div class="col">
-    <app-country-search (onSearch)="search($event)" [placeholder]="placeholder"></app-country-search>
-    <app-error [errorMessage]="errorMessage"></app-error>
+<div class="animate__animated animate__fadeIn">
+  <br />
+  <h2>Search a Capital</h2>
+  <hr />
+  
+  <div class="row">
+    <div class="col">
+      <app-country-search (onSearch)="search($event)" [placeholder]="placeholder"></app-country-search>
+      <app-error [errorMessage]="errorMessage"></app-error>
+    </div>
+  </div>
+  
+  <br />
+  
+  <div class="row">
+    <div class="col">
+      <app-country-table [countries]="countries"></app-country-table>
+    </div>
   </div>
 </div>
 
-<br />
-
-<div class="row">
-  <div class="col">
-    <app-country-table [countries]="countries"></app-country-table>
-  </div>
-</div>

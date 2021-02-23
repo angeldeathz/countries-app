@@ -1,18 +1,38 @@
-<br />
-<h2>Search a Country</h2>
-<hr />
+<div class="animate__animated animate__fadeIn">
+  <br />
+  <h2>Search a Country</h2>
+  <hr />
 
-<div class="row">
-  <div class="col">
-    <app-country-search (onSearch)="search($event)" [placeholder]="placeholder"></app-country-search>
-    <app-error [errorMessage]="errorMessage"></app-error>
+  <div class="row">
+    <div class="col">
+      <app-country-search
+        (onSearch)="search($event)"
+        [placeholder]="placeholder"
+        (onDebounce)="suggests($event)"
+      ></app-country-search>
+      <app-error [errorMessage]="errorMessage"></app-error>
+    </div>
   </div>
-</div>
 
-<br />
+  <div class="row">
+    <div class="col-6">
+      <ul class="list-group">
+        <li
+          class="list-group-item list-group-item-action item"
+          *ngFor="let country of suggestCountries"
+          (click)="search(country.name)"
+        >
+          {{ country.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
 
-<div class="row">
-  <div class="col">
-    <app-country-table [countries]="countries"></app-country-table>
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <app-country-table [countries]="countries"></app-country-table>
+    </div>
   </div>
 </div>

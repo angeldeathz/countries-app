@@ -1,42 +1,44 @@
-<br>
-<h2>View Country</h2>
-<hr>
-
-<br/>
-
-<div class="row">
-
-    <div class="col-lg-6 col-xs-12 center">
-        <h2>Flag</h2>
-        <img src="{{country.flag}}" alt="flag" class="flag">
+<div class="animate__animated animate__fadeIn">
+    <br>
+    <h2>View Country</h2>
+    <hr>
+    
+    <br/>
+    
+    <div class="row">
+    
+        <div class="col-lg-6 col-xs-12 center">
+            <h2>Flag</h2>
+            <img src="{{country.flag}}" alt="flag" class="flag">
+        </div>
+        
+        <div class="col-lg-6 col-xs-12">
+            <h2>Information</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Name: {{country.name}}</li>
+                <li class="list-group-item">Capital: {{country.capital}}</li>
+                <li class="list-group-item">Region: {{country.region}}</li>
+                <li class="list-group-item">SubRegion: {{country.subregion}}</li>
+                <li class="list-group-item">Population: {{country.population | number}}</li>
+            </ul>
+        </div>
     </div>
     
-    <div class="col-lg-6 col-xs-12">
-        <h2>Information</h2>
-        <ul class="list-group">
-            <li class="list-group-item">Name: {{country.name}}</li>
-            <li class="list-group-item">Capital: {{country.capital}}</li>
-            <li class="list-group-item">Region: {{country.region}}</li>
-            <li class="list-group-item">SubRegion: {{country.subregion}}</li>
-            <li class="list-group-item">Population: {{country.population | number}}</li>
-        </ul>
-    </div>
-</div>
-
-<br />
-
-<div class="row">
-    <div class="col center">
-        <h2>Traslations</h2>
-        <span class="badge bg-primary mr-1">{{country.translations.de}}</span>
-        <span class="badge bg-primary mr-1">{{country.translations.es}}</span>
-        <span class="badge bg-primary mr-1">{{country.translations.fr}}</span>
-        <span class="badge bg-primary mr-1">{{country.translations.ja}}</span>
-        <span class="badge bg-primary mr-1">{{country.translations.it}}</span>
-        <span class="badge bg-primary mr-1">{{country.translations.br}}</span>
-        <span class="badge bg-primary mr-1">{{country.translations.pt}}</span>
-        <span class="badge bg-primary mr-1">{{country.translations.nl}}</span>
-        <span class="badge bg-primary mr-1">{{country.translations.hr}}</span>
-        <span class="badge bg-primary mr-1">{{country.translations.fa}}</span>
+    <br />
+    
+    <div class="row">
+        <div class="col center">
+            <h2>Traslations</h2>
+            <span class="badge bg-primary mr-1">{{country.translations.de}}</span>
+            <span class="badge bg-primary mr-1">{{country.translations.es}}</span>
+            <span class="badge bg-primary mr-1">{{country.translations.fr}}</span>
+            <span class="badge bg-primary mr-1">{{country.translations.ja}}</span>
+            <span class="badge bg-primary mr-1">{{country.translations.it}}</span>
+            <span class="badge bg-primary mr-1">{{country.translations.br}}</span>
+            <span class="badge bg-primary mr-1">{{country.translations.pt}}</span>
+            <span class="badge bg-primary mr-1">{{country.translations.nl}}</span>
+            <span class="badge bg-primary mr-1">{{country.translations.hr}}</span>
+            <span class="badge bg-primary mr-1">{{country.translations.fa}}</span>
+        </div>
     </div>
 </div>

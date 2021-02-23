@@ -4,15 +4,14 @@
       <input
         type="text"
         class="form-control"
-        placeholder="{{placeholder}}"
+        placeholder="{{ placeholder }}"
         [(ngModel)]="query"
         name="query"
+        (input)="keyPress()"
       />
     </div>
     <div class="col-3">
-      <button type="submit" class="btn btn-primary">
-        Search
-      </button>
+      <button type="submit" class="btn btn-primary">Search</button>
     </div>
   </div>
 </form>

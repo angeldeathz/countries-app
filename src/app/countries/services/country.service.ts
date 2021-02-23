@@ -5,6 +5,7 @@ import {environment} from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Country } from '../interfaces/country';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class CountryService {
   
   public searchByRegion(query: string): Observable<Country[]> {
     const url = environment.urlRestCountries + "region/" + query;
-    return this.httpClient.get<Country[]>(url);
+    return this.httpClient.get<Country[]>(url)
   }
 
   public searchByCode(query: string): Observable<Country> {

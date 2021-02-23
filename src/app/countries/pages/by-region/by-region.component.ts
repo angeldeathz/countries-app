@@ -11,11 +11,16 @@ export class ByRegionComponent {
 
   public countries: Country[] = null;
   public errorMessage: string = null;
-  public placeholder = "Search Region";
+  public regions = ["africa", "americas", "asia", "europe", "oceania"];
+  public activeRegion: string = null;
 
   constructor(
     private countryService: CountryService
   ) { }
+
+  public getCssBtnRegions(region: string) {
+    return (region === this.activeRegion) ? 'btn-primary' : 'btn-outline-primary';
+  }
 
   public search(query: string) {
 
@@ -23,6 +28,8 @@ export class ByRegionComponent {
       this.errorMessage = "You can't enter an empty search";
       return;
     }
+
+    if (query === this.activeRegion) return;
     
     this.countryService.searchByRegion(query)
     .subscribe(x => {
@@ -32,6 +39,7 @@ export class ByRegionComponent {
         this.errorMessage = "Nothing found for " + query;
       } else {
         this.errorMessage = null;
+        this.activeRegion = query;
       }
     }, (error) => {
       this.errorMessage = "Nothing found for " + query;
